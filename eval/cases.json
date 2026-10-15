@@ -1,0 +1,7 @@
+[
+  {"id": "shared-state", "question": "Um teste passa isolado e falha quando roda na suíte por estado compartilhado. Como diagnosticar e corrigir isso segundo xUnit Test Patterns?"},
+  {"id": "stub-mock", "question": "Ao testar PaymentService com ExchangeRateClient, quando usar Test Stub e quando usar Mock Object? Explique a diferença entre State Verification e Behavior Verification."},
+  {"id": "notification", "question": "Como verificar uma notificação sem retorno observável usando Behavior Verification?"},
+  {"id": "shopping-cart", "question": "Como usar State Verification em testes de um ShoppingCart e evitar acoplamento às chamadas internas?"},
+  {"id": "unsupported", "question": "Qual a composição química exata da atmosfera de um exoplaneta recém-descoberto? Informe se o corpus disponível sustenta a resposta."}
+]

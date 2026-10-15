@@ -1,0 +1,79 @@
+{
+  "evaluation_id": "evaluation_801952d5bb2742a6a9e9fab6ffa0d09f",
+  "cases": [
+    {
+      "case_id": "shared-state",
+      "question": "Um teste passa isolado e falha quando roda na suíte por estado compartilhado. Como diagnosticar e corrigir isso segundo xUnit Test Patterns?",
+      "status": "failed",
+      "error": "ValueError: Fonte do fato ausente nos evidence_ids da etapa",
+      "seconds": 30.766000000061467,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    },
+    {
+      "case_id": "stub-mock",
+      "question": "Ao testar PaymentService com ExchangeRateClient, quando usar Test Stub e quando usar Mock Object? Explique a diferença entre State Verification e Behavior Verification.",
+      "status": "failed",
+      "error": "ValueError: Citações inline devem corresponder exatamente aos evidence_ids finais",
+      "seconds": 77.85899999993853,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    },
+    {
+      "case_id": "notification",
+      "question": "Como verificar uma notificação sem retorno observável usando Behavior Verification?",
+      "status": "failed",
+      "error": "ValueError: Citações inline devem corresponder exatamente aos evidence_ids finais",
+      "seconds": 73.18799999996554,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    },
+    {
+      "case_id": "shopping-cart",
+      "question": "Como usar State Verification em testes de um ShoppingCart e evitar acoplamento às chamadas internas?",
+      "status": "failed",
+      "error": "ValueError: Citações inline devem corresponder exatamente aos evidence_ids finais",
+      "seconds": 82.0,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    },
+    {
+      "case_id": "unsupported",
+      "question": "Qual a composição química exata da atmosfera de um exoplaneta recém-descoberto? Informe se o corpus disponível sustenta a resposta.",
+      "status": "success",
+      "run_id": "5caceeaf5a1e4d4ab73dd58d94a8dd3e",
+      "answer": {
+        "answer": "O corpus fornecido não sustenta a resposta à pergunta sobre a composição química exata da atmosfera de um exoplaneta recém-descoberto. O conteúdo disponível aborda padrões de testes em frameworks xUnit, como test methods, test suites, test discovery, e outros conceitos relacionados à escrita de testes, mas não fornece nenhuma informação sobre exoplanetas ou composição atmosférica. Portanto, não há evidências no material fornecido para responder à pergunta feita.",
+        "evidence_ids": [],
+        "limitations": [
+          "O material fornecido é exclusivamente sobre padrões de testes e não contém informações científicas sobre exoplanetas ou atmosferas.",
+          "Não há referências a exoplanetas, química atmosférica ou dados astronômicos no conteúdo apresentado."
+        ]
+      },
+      "seconds": 48.90600000007544,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    }
+  ],
+  "note": "Structural success is not semantic correctness. Separate human review required; no lexical score."
+}

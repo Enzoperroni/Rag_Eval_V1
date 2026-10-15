@@ -1,0 +1,117 @@
+{
+  "evaluation_id": "evaluation_b3c579e52ec74ab2977c8184c4b35503",
+  "cases": [
+    {
+      "case_id": "shared-state",
+      "question": "Um teste passa isolado e falha quando roda na suíte por estado compartilhado. Como diagnosticar e corrigir isso segundo xUnit Test Patterns?",
+      "status": "success",
+      "run_id": "08c5f3029a24456b92bb5bd016177107",
+      "answer": {
+        "answer": "O teste passa isolado e falha em suíte por estado compartilhado, indicando uso de Fixture Compartilhada. A causa é a fixture não ser reinitializada entre testes [l_7c8b0b6755646dc3b42a].",
+        "evidence_ids": [
+          "l_7c8b0b6755646dc3b42a"
+        ],
+        "limitations": [
+          "Falta evidência sobre solução específica aplicada ao caso."
+        ]
+      },
+      "seconds": 38.46899999992456,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    },
+    {
+      "case_id": "stub-mock",
+      "question": "Ao testar PaymentService com ExchangeRateClient, quando usar Test Stub e quando usar Mock Object? Explique a diferença entre State Verification e Behavior Verification.",
+      "status": "success",
+      "run_id": "7796edd9c46847ab88f91b5880743469",
+      "answer": {
+        "answer": "Test Stub substitui dependências para verificar estado, enquanto Mock Object monitora interações para verificar comportamento. State Verification compara o estado final do SUT, Behavior Verification verifica chamadas de método feitas em dependências.\n\nFontes: [l_192d014f9ba5912cf885], [l_939b2ac1082495a533a5]",
+        "evidence_ids": [
+          "l_192d014f9ba5912cf885",
+          "l_939b2ac1082495a533a5"
+        ],
+        "limitations": [
+          "Não há evidência sobre como o ExchangeRateClient é integrado ao PaymentService nos testes."
+        ]
+      },
+      "seconds": 39.71799999999348,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    },
+    {
+      "case_id": "notification",
+      "question": "Como verificar uma notificação sem retorno observável usando Behavior Verification?",
+      "status": "success",
+      "run_id": "2cf11fb0b2dc44308693fad314a50b22",
+      "answer": {
+        "answer": "Para verificar uma notificação sem retorno observável usando Behavior Verification, utilize Test Doubles como Mock Objects ou Test Spies para monitorar interações do SUT com dependências. Isso é aplicável quando saídas diretas não são disponíveis, focando em validação de comportamento.\n\nFontes: [s_988e5c4728ed5a2a2c9b], [s_f21a4c896594fe039ac5]",
+        "evidence_ids": [
+          "s_988e5c4728ed5a2a2c9b",
+          "s_f21a4c896594fe039ac5"
+        ],
+        "limitations": [
+          "Não há evidência sobre como implementar específicamente a verificação de notificações em um contexto real.",
+          "A aplicação de Behavior Verification depende de dependências substituíveis, que não estão detalhadas no corpus."
+        ]
+      },
+      "seconds": 36.45400000002701,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    },
+    {
+      "case_id": "shopping-cart",
+      "question": "Como usar State Verification em testes de um ShoppingCart e evitar acoplamento às chamadas internas?",
+      "status": "success",
+      "run_id": "bbde60d448a045908901b368219c27e9",
+      "answer": {
+        "answer": "State Verification em testes de um ShoppingCart envolve verificar o estado final do SUT após a execução, usando assertões para comparar com o estado esperado. Não se deve instrumentar o SUT para monitorar interações com outros componentes, apenas verificar o estado direto após a execução.\n\nFontes: [l_56d061efa9bf77bce254]",
+        "evidence_ids": [
+          "l_56d061efa9bf77bce254"
+        ],
+        "limitations": [
+          "Falta exemplos específicos de implementação para o ShoppingCart."
+        ]
+      },
+      "seconds": 35.54700000002049,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    },
+    {
+      "case_id": "unsupported",
+      "question": "Qual a composição química exata da atmosfera de um exoplaneta recém-descoberto? Informe se o corpus disponível sustenta a resposta.",
+      "status": "success",
+      "run_id": "f304c169c43849f48a51b855006834fc",
+      "answer": {
+        "answer": "O corpus fornecido não sustenta informações sobre a composição química da atmosfera de exoplanetas. As evidências referem-se a padrões de testes xUnit, não a dados astronômicos ou químicos.",
+        "evidence_ids": [],
+        "limitations": [
+          "Falta de dados científicos sobre exoplanetas no corpus; as evidências são exclusivamente sobre testes de software."
+        ]
+      },
+      "seconds": 22.45299999997951,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    }
+  ],
+  "note": "Structural success is not semantic correctness. Separate human review required; no lexical score."
+}

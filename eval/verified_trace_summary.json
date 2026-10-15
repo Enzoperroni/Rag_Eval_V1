@@ -1,0 +1,222 @@
+[
+  {
+    "case_id": "shared-state",
+    "run_id": "08c5f3029a24456b92bb5bd016177107",
+    "status": "success",
+    "answer": {
+      "answer": "O teste passa isolado e falha em suíte por estado compartilhado, indicando uso de Fixture Compartilhada. A causa é a fixture não ser reinitializada entre testes [l_7c8b0b6755646dc3b42a].",
+      "evidence_ids": [
+        "l_7c8b0b6755646dc3b42a"
+      ],
+      "limitations": [
+        "Falta evidência sobre solução específica aplicada ao caso."
+      ]
+    },
+    "complete": {
+      "event": "query_complete",
+      "logical_llm_calls": 5,
+      "retrieval_calls": 3,
+      "run_id": "08c5f3029a24456b92bb5bd016177107",
+      "status": "success",
+      "time": "2026-10-07T22:20:57.958031+00:00",
+      "total_seconds": 38.39099999994505,
+      "transport_inference_attempts": 5
+    },
+    "previous_steps": [
+      [],
+      [
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "max_resident": 1,
+    "retrieved_levels": [
+      0,
+      1
+    ]
+  },
+  {
+    "case_id": "stub-mock",
+    "run_id": "7796edd9c46847ab88f91b5880743469",
+    "status": "success",
+    "answer": {
+      "answer": "Test Stub substitui dependências para verificar estado, enquanto Mock Object monitora interações para verificar comportamento. State Verification compara o estado final do SUT, Behavior Verification verifica chamadas de método feitas em dependências.\n\nFontes: [l_192d014f9ba5912cf885], [l_939b2ac1082495a533a5]",
+      "evidence_ids": [
+        "l_192d014f9ba5912cf885",
+        "l_939b2ac1082495a533a5"
+      ],
+      "limitations": [
+        "Não há evidência sobre como o ExchangeRateClient é integrado ao PaymentService nos testes."
+      ]
+    },
+    "complete": {
+      "event": "query_complete",
+      "logical_llm_calls": 5,
+      "retrieval_calls": 3,
+      "run_id": "7796edd9c46847ab88f91b5880743469",
+      "status": "success",
+      "time": "2026-10-07T22:21:37.671893+00:00",
+      "total_seconds": 39.64000000001397,
+      "transport_inference_attempts": 5
+    },
+    "previous_steps": [
+      [],
+      [
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "max_resident": 1,
+    "retrieved_levels": [
+      0,
+      1
+    ]
+  },
+  {
+    "case_id": "notification",
+    "run_id": "2cf11fb0b2dc44308693fad314a50b22",
+    "status": "success",
+    "answer": {
+      "answer": "Para verificar uma notificação sem retorno observável usando Behavior Verification, utilize Test Doubles como Mock Objects ou Test Spies para monitorar interações do SUT com dependências. Isso é aplicável quando saídas diretas não são disponíveis, focando em validação de comportamento.\n\nFontes: [s_988e5c4728ed5a2a2c9b], [s_f21a4c896594fe039ac5]",
+      "evidence_ids": [
+        "s_988e5c4728ed5a2a2c9b",
+        "s_f21a4c896594fe039ac5"
+      ],
+      "limitations": [
+        "Não há evidência sobre como implementar específicamente a verificação de notificações em um contexto real.",
+        "A aplicação de Behavior Verification depende de dependências substituíveis, que não estão detalhadas no corpus."
+      ]
+    },
+    "complete": {
+      "event": "query_complete",
+      "logical_llm_calls": 5,
+      "retrieval_calls": 3,
+      "run_id": "2cf11fb0b2dc44308693fad314a50b22",
+      "status": "success",
+      "time": "2026-10-07T22:22:14.142994+00:00",
+      "total_seconds": 36.39100000006147,
+      "transport_inference_attempts": 5
+    },
+    "previous_steps": [
+      [],
+      [
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "max_resident": 1,
+    "retrieved_levels": [
+      0,
+      1
+    ]
+  },
+  {
+    "case_id": "shopping-cart",
+    "run_id": "bbde60d448a045908901b368219c27e9",
+    "status": "success",
+    "answer": {
+      "answer": "State Verification em testes de um ShoppingCart envolve verificar o estado final do SUT após a execução, usando assertões para comparar com o estado esperado. Não se deve instrumentar o SUT para monitorar interações com outros componentes, apenas verificar o estado direto após a execução.\n\nFontes: [l_56d061efa9bf77bce254]",
+      "evidence_ids": [
+        "l_56d061efa9bf77bce254"
+      ],
+      "limitations": [
+        "Falta exemplos específicos de implementação para o ShoppingCart."
+      ]
+    },
+    "complete": {
+      "event": "query_complete",
+      "logical_llm_calls": 5,
+      "retrieval_calls": 3,
+      "run_id": "bbde60d448a045908901b368219c27e9",
+      "status": "success",
+      "time": "2026-10-07T22:22:49.690930+00:00",
+      "total_seconds": 35.46900000004098,
+      "transport_inference_attempts": 5
+    },
+    "previous_steps": [
+      [],
+      [
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "max_resident": 1,
+    "retrieved_levels": [
+      0
+    ]
+  },
+  {
+    "case_id": "unsupported",
+    "run_id": "f304c169c43849f48a51b855006834fc",
+    "status": "success",
+    "answer": {
+      "answer": "O corpus fornecido não sustenta informações sobre a composição química da atmosfera de exoplanetas. As evidências referem-se a padrões de testes xUnit, não a dados astronômicos ou químicos.",
+      "evidence_ids": [],
+      "limitations": [
+        "Falta de dados científicos sobre exoplanetas no corpus; as evidências são exclusivamente sobre testes de software."
+      ]
+    },
+    "complete": {
+      "event": "query_complete",
+      "logical_llm_calls": 5,
+      "retrieval_calls": 3,
+      "run_id": "f304c169c43849f48a51b855006834fc",
+      "status": "success",
+      "time": "2026-10-07T22:23:12.140259+00:00",
+      "total_seconds": 22.375,
+      "transport_inference_attempts": 5
+    },
+    "previous_steps": [
+      [],
+      [
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        3
+      ]
+    ],
+    "max_resident": 1,
+    "retrieved_levels": [
+      0,
+      1
+    ]
+  }
+]

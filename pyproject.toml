@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xunit-rag"
+version = "0.1.0"
+description = "Local xUnit specialist with sequential Query Decomposition and RAPTOR"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "chromadb==1.5.9", "docling==2.135.0", "langchain-core==1.6.7",
+  "httpx==0.28.1", "pydantic==2.13.5", "numpy==2.5.3",
+  "scikit-learn==1.9.1", "umap-learn==0.5.12",
+  "tokenizers==0.23.2", "langdetect==1.0.9", "filelock==3.32.7",
+  "pypdf==6.19.0", "truststore==0.10.4", "semchunk==3.2.5"
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "ruff==0.16.10"]
+
+[project.scripts]
+xunit-rag = "xunit_rag.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+xunit_rag = ["prompts/*.txt", "prompts/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

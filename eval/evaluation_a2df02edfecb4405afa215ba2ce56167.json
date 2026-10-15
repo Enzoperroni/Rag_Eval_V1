@@ -1,0 +1,106 @@
+{
+  "evaluation_id": "evaluation_a2df02edfecb4405afa215ba2ce56167",
+  "cases": [
+    {
+      "case_id": "shared-state",
+      "question": "Um teste passa isolado e falha quando roda na suíte por estado compartilhado. Como diagnosticar e corrigir isso segundo xUnit Test Patterns?",
+      "status": "success",
+      "run_id": "872df6717fbc43c0868566b5b900b9e4",
+      "answer": {
+        "answer": "### Diagnóstico e Correção de Testes com Estado Compartilhado segundo xUnit Test Patterns\n\n**Diagnóstico:**\nO problema descrito — um teste passa isolado, mas falha quando executado na suíte — é comumente causado por **Shared Fixture** (Fixtures Compartilhadas), conforme documentado em [l_7c8b0b6755646dc3b42a]. A Shared Fixture é um padrão que permite que múltiplos testes compartilhem o mesmo estado de inicialização, mas se não for gerenciado corretamente, isso pode levar à **contaminação de estado** entre testes. Isso ocorre especialmente quando o **Suite Fixture Setup** é usado, que inicializa a fixture uma vez por classe de teste, e o **tearDown** é executado após o último teste da classe, sem garantir que o estado seja limpo entre testes [l_fe3253417f19298a0a9e].\n\n**Correções:**\n1. **Evite Shared Fixture** quando possível. Em vez disso, use **Dependency Injection** para injetar dependências em cada teste, garantindo que cada teste tenha sua própria instância de fixture. Isso evita a contaminação de estado entre testes.\n2. **Use Lazy Setup com cuidado.** Se for necessário usar Lazy Setup para inicializar fixtures, certifique-se de que a fixture seja reinitializada antes de cada teste. Isso pode ser feito com o uso de **@BeforeEach** ou **@BeforeEach** em JUnit 5, que garante que a fixture seja recriada antes de cada teste.\n3. **Limpe o estado após cada teste.** Use **@AfterEach** ou **@After** para garantir que o estado da fixture seja limpo após cada teste, evitando que o estado de um teste afete outro.\n4. **Use Test Doubles (Mocks/Spies) para isolar dependências.** Em vez de depender de fixtures compartilhadas, use mocks ou spies para simular dependências externas, garantindo que os testes sejam independentes.\n\n**Exemplo de Implementação em Java/JUnit 5:**\n```java\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.AfterEach;\nimport org.junit.jupiter.api.Test;\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class ExampleTest {\n    private MyFixture fixture;\n\n    @BeforeEach\n    public void setUp() {\n        fixture = new MyFixture();\n    }\n\n    @AfterEach\n    public void tearDown() {\n        fixture.clear();\n    }\n\n    @Test\n    public void testExample() {\n        // Arrange\n        fixture.setup();\n        // Act\n        fixture.run();\n        // Assert\n        assertTrue(fixture.isSuccess());\n    }\n}\n```\n\n**Limitações:**\n- A Shared Fixture pode ser útil em cenários específicos, mas deve ser usada com cuidado para evitar contaminação de estado.\n- A limpeza de estado entre testes pode ser custosa em termos de desempenho, especialmente em fixtures complexas.\n- A dependência de fixtures compartilhadas pode dificultar a manutenção e a escalabilidade do conjunto de testes.\n\n**Conclusão:**\nO problema descrito é causado por fixtures compartilhadas que não são isoladas entre testes. Para corrigir isso, é recomendado usar Dependency Injection, limpar o estado após cada teste e evitar o uso de Lazy Setup sem garantir a reinitialização da fixture. Essas práticas ajudam a garantir que os testes sejam independentes e não sejam afetados por estados anteriores.",
+        "evidence_ids": [
+          "l_7c8b0b6755646dc3b42a",
+          "l_fe3253417f19298a0a9e"
+        ],
+        "limitations": [
+          "A Shared Fixture pode ser útil em cenários específicos, mas deve ser usada com cuidado para evitar contaminação de estado.",
+          "A limpeza de estado entre testes pode ser custosa em termos de desempenho, especialmente em fixtures complexas.",
+          "A dependência de fixtures compartilhadas pode dificultar a manutenção e a escalabilidade do conjunto de testes."
+        ]
+      },
+      "seconds": 62.79700000002049,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    },
+    {
+      "case_id": "stub-mock",
+      "question": "Ao testar PaymentService com ExchangeRateClient, quando usar Test Stub e quando usar Mock Object? Explique a diferença entre State Verification e Behavior Verification.",
+      "status": "success",
+      "run_id": "be925c8333dd406b9f99d61b20dc31ec",
+      "answer": {
+        "answer": "Ao testar `PaymentService` com `ExchangeRateClient`, a escolha entre **Test Stub** e **Mock Object** depende do objetivo do teste. **Test Stubs** são usados para substituir dependências reais em testes, permitindo testes determinísticos e repetíveis [s_19141e4f8c4a41d0d3f8]. Eles atuam como pontos de controle para fornecer entradas indiretas ao SUT (System Under Test) quando seus métodos são chamados [l_8d1a2be17a95b85b5f98]. Por outro lado, **Mock Objects** são usados para monitorar o comportamento de um objeto durante a execução, verificando se as interações com as dependências ocorreram conforme esperado [l_f7a507b8fd0d256581e2].\n\nA diferença entre **State Verification** e **Behavior Verification** está no que está sendo verificado. **State Verification** é mais simples e envolve a verificação do estado final do SUT após a execução do teste, comparando-o com o estado esperado [l_939b2ac1082495a533a5]. Já **Behavior Verification** é mais complexo e envolve a verificação das interações do SUT com suas dependências, monitorando as chamadas de método feitas por ele [l_192d014f9ba5912cf885].\n\nEm resumo, **Test Stubs** são usados para fornecer entradas controladas, enquanto **Mock Objects** são usados para verificar interações. **State Verification** verifica o estado final do SUT, enquanto **Behavior Verification** verifica o comportamento do SUT durante a execução.",
+        "evidence_ids": [
+          "l_192d014f9ba5912cf885",
+          "l_8d1a2be17a95b85b5f98",
+          "l_939b2ac1082495a533a5",
+          "l_f7a507b8fd0d256581e2",
+          "s_19141e4f8c4a41d0d3f8"
+        ],
+        "limitations": [
+          "A diferença entre Test Stub e Mock Object pode ser subjetiva, dependendo do contexto do teste e das necessidades do desenvolvedor.",
+          "State Verification e Behavior Verification podem se sobrepôr em casos onde o SUT armazena estado em dependências, tornando a distinção menos clara [l_192d014f9ba5912cf885].",
+          "Não há evidência direta sobre como aplicar essas técnicas em `PaymentService` com `ExchangeRateClient` em um cenário específico."
+        ]
+      },
+      "seconds": 49.35999999998603,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    },
+    {
+      "case_id": "notification",
+      "question": "Como verificar uma notificação sem retorno observável usando Behavior Verification?",
+      "status": "failed",
+      "error": "ValueError: Resposta com fontes declaradas precisa de citações inline identificáveis",
+      "seconds": 42.93700000003446,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    },
+    {
+      "case_id": "shopping-cart",
+      "question": "Como usar State Verification em testes de um ShoppingCart e evitar acoplamento às chamadas internas?",
+      "status": "failed",
+      "error": "ValueError: Resposta com fontes declaradas precisa de citações inline identificáveis",
+      "seconds": 53.45299999997951,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    },
+    {
+      "case_id": "unsupported",
+      "question": "Qual a composição química exata da atmosfera de um exoplaneta recém-descoberto? Informe se o corpus disponível sustenta a resposta.",
+      "status": "success",
+      "run_id": "de5415bf4b25408480793390ec103fc4",
+      "answer": {
+        "answer": "O corpus fornecido não sustenta a resposta à pergunta sobre a composição química exata da atmosfera de um exoplaneta recém-descoberto. O conteúdo aborda padrões de testes em ambientes xUnit, como test methods, test suites, test discovery, e outros conceitos relacionados à escrita de testes, mas não fornece nenhuma informação sobre exoplanetas ou composição atmosférica. Portanto, não há evidências disponíveis para responder à pergunta formulada.",
+        "evidence_ids": [],
+        "limitations": [
+          "O corpus fornecido é exclusivamente sobre padrões de testes e não contém informações científicas sobre exoplanetas ou atmosferas.",
+          "Não há referências a dados químicos, espectroscopia, ou métodos de análise de atmosferas de exoplanetas no material fornecido."
+        ]
+      },
+      "seconds": 25.266000000061467,
+      "human_review": {
+        "decomposition": null,
+        "retrieval": null,
+        "conceptual_faithfulness": null,
+        "code_usefulness": null
+      }
+    }
+  ],
+  "note": "Structural success is not semantic correctness. Separate human review required; no lexical score."
+}
